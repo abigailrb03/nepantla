@@ -90,6 +90,12 @@
     <!-- <div class="current-ponderings">
         <i>on my mind right now is...</i>
     </div> -->
+    <div id="elsewhere-placeholder"></div>
+        <script>
+            fetch('elsewhere.html')
+                .then(res => res.text())
+                .then(html => document.getElementById('elsewhere-placeholder').innerHTML = html);
+        </script>
 
 </body>
 </html>
