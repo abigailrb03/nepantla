@@ -1,359 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>the Desert has eyes</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: #f8f7f4;
-            color: #2c2c2c;
-            line-height: 1.8;
-        }
-
-        .text-section {
-            max-width: 80vw;
-            margin: 0 auto;
-            padding: 60px 10vw;
-            font-size: 18px;
-        }
-
-        .text-section h1 {
-            font-size: 42px;
-            margin-bottom: 40px;
-            text-align: center;
-            font-weight: 400;
-            letter-spacing: 2px;
-        }
-
-        .text-section p {
-            margin-bottom: 24px;
-            text-align: justify;
-            text-indent: 2em;
-        }
-
-        .text-section p:first-of-type {
-            text-indent: 0;
-        }
-
-        .carousel-container {
-            height: 30vh;
-            position: relative;
-            overflow: hidden;
-            background: #000;
-            display: flex;
-            align-items: center;
-        }
-
-        .carousel-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.3s ease;
-            cursor: grab;
-        }
-
-        .carousel-track:active {
-            cursor: grabbing;
-        }
-
-        .carousel-track.horizontal-scroll {
-            cursor: ew-resize;
-        }
-
-        .carousel-item {
-            min-width: 400px;
-            height: 100%;
-            margin: 0 10px;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .carousel-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .carousel-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 20px;
-            color: white;
-            font-size: 14px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .carousel-item:hover .carousel-overlay {
-            opacity: 1;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 14px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            background: rgba(0,0,0,0.6);
-            padding: 10px 20px;
-            border-radius: 20px;
-            z-index: 10;
-        }
-
-        .carousel-container:hover .scroll-hint {
-            opacity: 1;
-        }
-
-        .translation-section {
-            max-width: 80vw;
-            margin: 0 auto;
-            padding: 1vw;
-        }
-
-        .translation-box {
-            border: 2px solid #2c2c2c;
-            padding: 30px;
-            background: white;
-            border-radius: 4px;
-            position: relative;
-        }
-
-        .translation-text {
-            font-size: 14px;
-            font-weight: lighter;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        .translate-btn {
-            background: #70A37F;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            font-size: 12px;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.3s ease;
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-        }
-
-        .translate-btn:hover {
-            background: #5a8a68;
-        }
-
-        @media (max-width: 768px) {
-            .text-section {
-                font-size: 16px;
-                padding: 40px 5vw;
-            }
-
-            .carousel-item {
-                min-width: 300px;
-            }
-        }
-    </style>
+  <title>a lil digital garden</title>
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #EFF1C5;
+    }
+    a, a:visited {
+        color: #5AAA95;
+    }
+    .about-pic {
+        width: 24vh;
+    }
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .nav-button {
+        display: flex;
+        padding: 1vw;
+    }
+    .about-img-bio {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        align-items: center;
+        padding-bottom: 6vh;
+        padding-top: 10vh;
+    }
+    .img-wrapper{
+        display: flex;
+        flex-direction: column;
+        padding-left: 4vw;
+    }
+    .about-text {
+        width: 60%;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .research-list{
+        font-size: 13px;
+        display: flex;
+        justify-content: center;
+        width: 60%;
+        padding-left: 4vw;
+    }
+  </style>
 </head>
 <body>
-    <!-- First Text Section -->
-    <div class="text-section">
-        <h1>the Desert has eyes</h1>
-        <p>
-            When I get to Tucson I step out of the airport into a warm evening. The scent of the rain from earlier is still in the air, the remnants of monsoons saying their final goodbye as the earth spins into fall, as I head back into the town I call home.
-        </p>
-        <p>
-            In truth, Tucson was never meant to be home. Fearing violence and hoping to offer their children a safer life, my elders began the journey from Guanajuato, Mexico to California, where the <i>bracero</i> program and the fields overflowing with fruit promised citizenship and work. Whether it was the heat, the weight of at least six children, or simply the age of the car they had loaded their lives into, the family car barely made it over the border between the US and Mexico before breaking down. With no money remaining and a family to support, it seemed the desert, with its saguaros and javelinas, was a wonderful place to settle down. 
-        </p>
-        <p>
-            And to me, whose eyes have never known Guanajato, the beauty of the desert overwhelms me. At first glance, the soil is red and dry, the saguaros stretch high, providing thin stripes of shadow along the terrain for whatever creature is brave enough to make the journey. Yet the bravery of the dessert can be heard as an orchestra. The desert abounds with strange little creatures who have adapted to not only survive, but to thrive, and what are we if not strange little creatures ourselves. There are hundreds of species of cacti, which deepen their roots and draw water into their hearts to save for another day. The lizards dart from burrow to burrow, and if you're lucky they might come out to greet you in the morning. Flowers bloom in vibrant color and gift their nectar to birds and bats, who dart along the mountains that envelope the land. Lives, past and present, intersect in the Sonoran. As I walk upon the land that bears so much unexpected life I'm surrounded by the memories of those who came before me.
-        </p>
-    </div>
-
-    <!-- Image Carousel -->
-    <div class="carousel-container" id="carouselContainer">
-        <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-item">
-                <img src="images/img0.png" alt="my tía Belén and her husband">
-                <div class="carousel-overlay">my tía Belén and her husband</div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/img1.png" alt="Belén was the eldest of 9 children">
-                <div class="carousel-overlay">Belén was the eldest of 9 children</div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/img2.png" alt="my tío Sam and his wife">
-                <div class="carousel-overlay">my tío Sam and his wife</div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/img3.png" alt="we learn to dress for the sun">
-                <div class="carousel-overlay">we learn to dress for the sun</div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/img4.png" alt="if this saguaro still lives, I hope it remembers Belén">
-                <div class="carousel-overlay">if this saguaro still lives, I hope it remembers Belén</div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/img5.png" alt="arizona had racially segregated schools and did not allow students to speak spanish">
-                <div class="carousel-overlay">arizona had racially segregated schools and did not allow students to speak spanish</div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/img6.png" alt="my great grandmother knew how to fix anything that broke">
-                <div class="carousel-overlay">my great grandmother knew how to fix anything that broke</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Second Text Section -->
-    <div class="text-section">
-        <p>
-            Growing up, I distinctly felt that the eyes of the desert, of the life forms past and present, watched over me. When I return to the desert now, the eyes feel different, disjoint.
-        </p>
-        <p>
-            A new border wall has toppled the century old saguaros; the wind now fights infrared drones, designed to detect heat that betrays the body, exposing the human body. From these artifacts, the deserts' twin emerges; a digital world built upon heaps of data encodes a landscape of humans, animals, and history.
-        </p>
-        <p>
-            I too exist in this digital world. I consented to the facial recognition scan at the airport, knowing full well my image would be used to train and improve facial recognition technologies. When I was pulled for a random search I complied, opening my bag for search and displaying my documents again.
-        </p>
-    </div>
-
-    <!-- Translation Section -->
-    <div class="translation-section">
-        <div class="translation-box">
-            <div class="translation-text" id="languageText">yo misma he contribuido a la opresión de los míos y me entra ese coraje y ‘rebeldía que tenemos en la sangre nosotros los mexicanos</div>
-            <button class="translate-btn" id="translateBtn">translate?</button>
-        </div>
-    </div>
-
-    <div class="text-section">
-        <p> 
-            <a href="https://ccat.sas.upenn.edu/romance/spanish/219/13eeuu/anzaldua.html">Gloria Anzaldúa</a> wrote of <i>nepantla</i>, an indigenous Nahua word that describes a type of “in between-ness.” Anzaldúa positions <i>nepantla</i> at the borderlands, sites of division between cultures and peoples that have emerged from colonialism. If you find yourself at these borderlands, you occupy a liminal space. You live in between languages and cultures, never fully in one or the other.
-        </p>
-        <p>
-            It is in <i>nepantla</i> that describes the n-dimensional space I find myself in. Physically, I am in the Sonoran desert, a borderland by definition. Anyone heading North from Mexico must walk the Sonoran, where over 100 migrants passed in 2024 due to the harsh conditions. The amount of loss in this land creates a space somewhere between grief and life.
-        </p>
-        <p>
-            Grief is where I find myself now. One year following my abuelo's death, we hike down to the Santa Cruz river to spread his ashes. We offer up our words, prayers, actions. We tell him we miss him, we cry for our friend, grandfather, husband.
-        </p>
-        <p>
-            We take turns grabbing handfuls of his ashes, we turn our palms to the sky and let the wind return his body to the earth.
-        </p>
-        <p>
-            When it is my turn, I grab a handful of ashes, inwardly wincing at the shards of bone in my hand. to hold someone’s remains is so intimate, it is something wholly natural and yet, I feel myself hesitating. My discomfort feels like a betrayal. The shards of bone in my hand do not feel like my grandfather, they don’t feel like his laughter or the decades of his life that he would begrudgingly tell us about.
-        </p>
-        <p>
-            Perhaps reckoning is not meant to feel natural. Grief is meant to be felt; it is meant to crush and crumple. It overtakes me in a way that will never be truly visible. The unblinking eyes of the security cameras that overlook this river – this river older than the shards of bone in my hand – cannot truly see my grief. My grief and rage and pain cannot be quantified, can never be reduced to binaries. Yet simultaneously, I cannot write of my grief sufficiently. There are never enough words to paint the overwhelm of grief and love I feel in my body. There is a part of me that does not exist in the physical nor digital, which exists in the <i>nepantla</i>. maybe we can create something beautiful here.
+    <div id="navbar-placeholder"></div>
     <script>
-        // Translation functionality
-        const translateBtn = document.getElementById('translateBtn');
-        const languageText = document.getElementById('languageText');
-        let isEnglish = true;
-
-        translateBtn.addEventListener('click', () => {
-            if (isEnglish) {
-                languageText.textContent = 'I too have contributed to the oppression of my people, and I gather the courage and “rebellion that us Mexicans have in our blood" — Gloria Anzaldúa';
-            } else {
-                languageText.textContent = 'yo misma he contribuido a la opresión de los míos y me entra ese coraje y "rebeldía que tenemos en la sangre nosotros los mexicanos" — Gloria Anzaldúa';
-            }
-            isEnglish = !isEnglish;
-        });
-
-        // Carousel functionality
-        const carouselContainer = document.getElementById('carouselContainer');
-        const carouselTrack = document.getElementById('carouselTrack');
-        let isHovering = false;
-        let scrollPosition = 0;
-
-        // Detect when user hovers over carousel
-        carouselContainer.addEventListener('mouseenter', () => {
-            isHovering = true;
-            carouselTrack.classList.add('horizontal-scroll');
-        });
-
-        carouselContainer.addEventListener('mouseleave', () => {
-            isHovering = false;
-            carouselTrack.classList.remove('horizontal-scroll');
-        });
-
-        // Intercept scroll when hovering over carousel
-        carouselContainer.addEventListener('wheel', (e) => {
-            if (isHovering) {
-                e.preventDefault();
-                
-                // Convert vertical scroll to horizontal movement
-                scrollPosition += e.deltaY;
-                
-                // Limit scroll to track width
-                const maxScroll = carouselTrack.scrollWidth - carouselContainer.offsetWidth;
-                scrollPosition = Math.max(0, Math.min(scrollPosition, maxScroll));
-                
-                carouselTrack.style.transform = `translateX(-${scrollPosition}px)`;
-            }
-        }, { passive: false });
-
-        // Touch/drag support for mobile
-        let isDragging = false;
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-
-        carouselTrack.addEventListener('mousedown', startDrag);
-        carouselTrack.addEventListener('touchstart', startDrag);
-        
-        carouselTrack.addEventListener('mousemove', drag);
-        carouselTrack.addEventListener('touchmove', drag);
-        
-        carouselTrack.addEventListener('mouseup', endDrag);
-        carouselTrack.addEventListener('mouseleave', endDrag);
-        carouselTrack.addEventListener('touchend', endDrag);
-
-        function startDrag(e) {
-            isDragging = true;
-            startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            carouselTrack.style.transition = 'none';
-        }
-
-        function drag(e) {
-            if (!isDragging) return;
-            e.preventDefault();
-            
-            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const diff = currentX - startX;
-            currentTranslate = prevTranslate + diff;
-            
-            const maxScroll = carouselTrack.scrollWidth - carouselContainer.offsetWidth;
-            currentTranslate = Math.max(-maxScroll, Math.min(0, currentTranslate));
-            
-            carouselTrack.style.transform = `translateX(${currentTranslate}px)`;
-        }
-
-        function endDrag() {
-            if (!isDragging) return;
-            isDragging = false;
-            prevTranslate = currentTranslate;
-            scrollPosition = -currentTranslate;
-            carouselTrack.style.transition = 'transform 0.3s ease';
-        }
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
     </script>
+    <div class="about-img-bio">
+        <div class="img-wrapper">
+        <img src="images/abby.jpg" 
+            class="about-pic" 
+            alt="abby, tan skinned woman with black hair and bangs. On mouse-over, an image of an orange cat and grey cat appear"
+            onmouseover="this.src='images/cats.jpg'"
+            onmouseout="this.src='images/abby.jpg'"/>
+
+            <span style="font-size: 12px;">welcome to my <a href="https://maggieappleton.com/garden-history/" target="_blank">digital garden</a></span>
+            <span style="font-size: 12px;">please pardon the chaos as it continues to grow</span>
+        </div>
+        <div class="about-text">
+            I'm abby <i>(she/ella)</i> & I'm a Masters student in Computer Science at UC Berkeley where I study computing education. I care deeply about teaching computer science in a manner that is culturally relevant, liberatory, and offers students agency over their computing futures. Beyond the classroom I keep busy with my cat Jicama, gardening, and <a href="https://www.instagram.com/aerialatcal/?hl=en" target="_blank">dance</a>
+        </div>
+    </div>
+
+    <div class="research-list">
+        <i>official publications</i>
+        <ol>
+            <li>
+                <b>A. Brooks-Ramirez</b> and L. Yan. 2026. By and for Teaching Assistants: Homegrown Tools in Computing Classrooms. In <i>Proceedings of the 57th ACM Technical Symposium on Computer Science Education V. 2 (SIGCSE 2026)</i>. ACM, New York, NY, USA. DOI: <a href="https://doi.org/10.1145/3770761.3777245" target="_blank">https://doi.org/10.1145/3770761.3777245</a>
+            </li>
+            <li>
+                <b>A. Brooks-Ramirez</b>, R. Dang, B. A. Ventura Benitez, and L. Yan. 2025. Scaling Responsible Data Science Education: The Role of a Teaching Assistant in Bridging the Sociotechnical Divide. In <i>2025 ASEE Annual Conference &amp; Exposition Proceedings</i>. ASEE. DOI: <a href="https://doi.org/10.18260/1-2--57629" target="_blank">https://doi.org/10.18260/1-2--57629</a>
+            </li>
+            <li>
+                K. Patel, <b>A. Brooks-Ramirez</b>, R. Dang, B. A. Ventura Benitez, and L. Yan. 2025. Exploration of Undergraduate Teaching Assistant Identity and Teaching Goals in Data Science Courses. In <i>Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 2 (SIGCSE 2025)</i>. ACM, New York, NY, USA. DOI: <a href="https://doi.org/10.1145/3641555.3705179" target="_blank">https://doi.org/10.1145/3641555.3705179</a>
+            </li>
+        </ol>
+    </div>
+    <!-- <div class="current-ponderings">
+        <i>on my mind right now is...</i>
+    </div> -->
+
 </body>
 </html>

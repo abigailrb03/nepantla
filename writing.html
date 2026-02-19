@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>a bee blog</title>
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #EFF1C5;
+    }
+  </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
+    </script>
+
+</body>
+</html>
