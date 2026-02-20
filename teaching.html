@@ -47,5 +47,12 @@
         <b><a href="https://cs61a.org/" target="_blank">CS 61A:</a> Structure and Interpretation of Computer Programs</b>
         <i>The first class I ever taught, which also taught me so much! I loved meeting students just beginning their journey in computing and offering support. One student wrote in my evaluations that I "made [them] feel included in a class filled with people who were doing way better than [them]," which is just one instance of how prevalent imposter syndrome is in CS. I care deeply about ensuring that students feel comfortable asking questions and gain not only technical skills, but confidence as well.</i>
     </div>
+
+    <div id="elsewhere-placeholder"></div>
+    <script>
+        fetch('elsewhere.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('elsewhere-placeholder').innerHTML = html);
+    </script>
 </body>
 </html>
