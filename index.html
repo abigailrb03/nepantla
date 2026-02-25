@@ -6,7 +6,7 @@
     body {
         display: flex;
         flex-direction: column;
-        background-color: #EFF1C5;
+        background-color: #f9edcc;
     }
     a, a:visited {
         color: #5AAA95;
@@ -14,8 +14,18 @@
     .about-pic {
         width: 24vh;
     }
+    .top {
+        display: flex;
+        flex-direction: row;
+        padding-left: 1vw;
+    }
+    #navbar-placeholder {
+        display: flex;
+        flex: 1;
+    }
     .nav-bar {
         display: flex;
+        flex: 1;
         flex-direction: row;
         justify-content: flex-end;
     }
@@ -23,13 +33,17 @@
         display: flex;
         padding: 1vw;
     }
+    .sunny-pic {
+        display: flex;
+        width: 130px;
+    }
     .about-img-bio {
         display: flex;
         flex-direction: row;
         gap: 5vw;
         align-items: center;
         padding-bottom: 6vh;
-        padding-top: 10vh;
+        padding-top: 4vh;
     }
     .img-wrapper{
         display: flex;
@@ -45,18 +59,25 @@
         font-size: 13px;
         display: flex;
         justify-content: center;
-        width: 60%;
+        width: 70%;
         padding-left: 4vw;
+    }
+    .left-side-pubs{
+        display: flex;
+        flex-direction: column;
     }
   </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-    <script>
-        fetch('navbar.html')
-            .then(res => res.text())
-            .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
-    </script>
+    <div class="top">
+        <img class = "sunny-pic" src="images/sun_red.png"/>
+        <div id="navbar-placeholder"></div>
+        <script>
+            fetch('navbar.html')
+                .then(res => res.text())
+                .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
+        </script>
+    </div>
     <div class="about-img-bio">
         <div class="img-wrapper">
         <img src="images/abby.jpg" 
@@ -69,14 +90,17 @@
             <span style="font-size: 12px;">please pardon the chaos as it continues to grow</span>
         </div>
         <div class="about-text">
-                        I'm abby <i>(she/ella)</i> & I'm a Masters student in Computer Science at UC Berkeley where I study computing education. I'm grateful to be advised by Professor Lisa Yan, and my work is supported by the National GEM Consortium. I care deeply about teaching computer science in a manner that is culturally relevant, liberatory, and offers students agency over their computing futures. Beyond the classroom I keep busy with my cats <i>J&iacutecama y Mango</i>
+                        I'm abby <i>(she/ella)</i> & I'm a Masters student in Computer Science at UC Berkeley where I study computing education. I'm grateful to be supported by the GEM Fellowship and my Faculty Advisor, Professor Lisa Yan. I care deeply about teaching computer science in a manner that is culturally relevant, liberatory, and offers students agency within the sociotechnical systems they inhabit. Beyond the classroom I keep busy with my cats <i>J&iacutecama y Mango</i>
             <!-- I'm abby <i>(she/ella)</i> & I'm a Masters student in Computer Science at UC Berkeley where I study computing education. I care deeply about teaching computer science in a manner that is culturally relevant, liberatory, and offers students agency over their computing futures. Beyond the classroom I keep busy with my cats <i>J&iacutecama y Mango</i>, gardening, and <a href="https://www.instagram.com/aerialatcal/?hl=en" target="_blank">dance</a> -->
         </div>
     </div>
 
     <div class="research-list">
-        <i>official publications</i>
-        <ol>
+        <div class="left-side-pubs">
+            <i>official publications</i>
+            <p>In my research I work to bring a lens of criticality to computing education. My recent work explores plurality & criticality in <i>computing epistemologies</i>, software development practices for <i>educational technology</i>, and <i>sociotechnical education</i>.</p>
+       </div>
+        <ul>
             <li>
                 <b>A. Brooks-Ramirez</b> and L. Yan. 2026. By and for Teaching Assistants: Homegrown Tools in Computing Classrooms. In <i>Proceedings of the 57th ACM Technical Symposium on Computer Science Education V. 2 (SIGCSE 2026)</i>. ACM, New York, NY, USA. DOI: <a href="https://doi.org/10.1145/3770761.3777245" target="_blank">https://doi.org/10.1145/3770761.3777245</a>
             </li>
@@ -86,7 +110,7 @@
             <li>
                 K. Patel, <b>A. Brooks-Ramirez</b>, R. Dang, B. A. Ventura Benitez, and L. Yan. 2025. Exploration of Undergraduate Teaching Assistant Identity and Teaching Goals in Data Science Courses. In <i>Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 2 (SIGCSE 2025)</i>. ACM, New York, NY, USA. DOI: <a href="https://doi.org/10.1145/3641555.3705179" target="_blank">https://doi.org/10.1145/3641555.3705179</a>
             </li>
-        </ol>
+        </ul>
     </div>
     <!-- <div class="current-ponderings">
         <i>on my mind right now is...</i>
